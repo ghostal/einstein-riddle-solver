@@ -512,11 +512,11 @@ class Street implements StreetInterface {
 		foreach ($this->residencies as $residency) {
 			$person = $residency->getPerson();
 			echo '[' . implode(' | ', [
-					str_pad(substr(end(explode('\\', get_class($person->getCigaretteBehaviour()))), 0, $pad), $pad, ' '),
-					str_pad(substr(end(explode('\\', get_class($person->getDrinkBehaviour()))), 0, $pad), $pad, ' '),
-					str_pad(substr(end(explode('\\', get_class($person->getHouseColourBehaviour()))), 0, $pad), $pad, ' '),
-					str_pad(substr(end(explode('\\', get_class($person->getNationalityBehaviour()))), 0, $pad), $pad, ' '),
-					str_pad(substr(end(explode('\\', get_class($person->getPetOwnershipBehaviour()))), 0, $pad), $pad, ' '),
+					str_pad(substr(array_last(explode('\\', get_class($person->getCigaretteBehaviour()))), 0, $pad), $pad, ' '),
+					str_pad(substr(array_last(explode('\\', get_class($person->getDrinkBehaviour()))), 0, $pad), $pad, ' '),
+					str_pad(substr(array_last(explode('\\', get_class($person->getHouseColourBehaviour()))), 0, $pad), $pad, ' '),
+					str_pad(substr(array_last(explode('\\', get_class($person->getNationalityBehaviour()))), 0, $pad), $pad, ' '),
+					str_pad(substr(array_last(explode('\\', get_class($person->getPetOwnershipBehaviour()))), 0, $pad), $pad, ' '),
 				]) . ']' . "\n";
 		}
 	}

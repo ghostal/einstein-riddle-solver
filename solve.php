@@ -2,6 +2,13 @@
 
 use Street\Street;
 
+if (! function_exists('array_last')) {
+    function array_last($arr)
+    {
+        return end($arr);
+    }
+}
+
 spl_autoload_register(function ($class) {
 
     // base directory for the namespace prefix

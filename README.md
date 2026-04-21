@@ -51,9 +51,18 @@ English, and I wanted to experiment with this technique.
 While I was successful in solving the riddle using recursive backtracking, I found that leaning too hard into creating
 fluent APIs that read clearly made things feel more complicated and awkward in the underlying implementation.
 
+Also, I found that it was better to rephrase certain rules to fit a single sentence structure, rather than having to
+implement another alternative API (so "the owner living in the center house drinks milk" becomes "the man who drinks
+milk lives in the center house").
+
+Example of rule definitions API (from `Solver::checkRules()`):
+
+    $check[] = $the->manWhoDrinksMilk()->livesIn($the->centerHouse());
+    $check[] = $the->norwegian()->livesIn($the->firstHouse());
+    $check[] = $the->manWhoSmokesBlends()->livesNextTo($the->manWhoKeepsCats());
+
 If a fluent API that maps closely to spoken English is really a requirement, I suspect it may be worthwhile to build
 such a thing over the top of a more traditional API. Otherwise, simply sticking with a more traditional API, or
 accepting trade-offs between fluency and ease-of-implementation may be a better choice.
-
 
 [1]: https://www.youtube.com/watch?v=q1I7WKncE64
